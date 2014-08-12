@@ -29,13 +29,13 @@ if [[ "${USER}" == "wmn" ]]; then
   # Load rbenv
   if [[ -d "${HOME}/.rbenv" ]]; then
     export PATH="${HOME}/.rbenv/bin:$PATH"
-    eval "$(rbenv init --no-rehash)"
+    eval "$(rbenv init --no-rehash -)"
   fi
 
   # Load pyenv
   if [[ -d "${HOME}/.pyenv" ]]; then
     export PATH="${HOME}/.pyenv/bin:$PATH"
-    eval "$(pyenv init --no-rehash)"
+    eval "$(pyenv init --no-rehash -)"
   fi
 
   # Color grep results

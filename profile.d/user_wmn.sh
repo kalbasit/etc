@@ -41,10 +41,4 @@ if [[ "${USER}" == "wmn" ]]; then
   # Color grep results
   export GREP_OPTIONS='--color=auto'
   export GREP_COLOR='1;32'
-
-  # Load Google specific stuff
-  [[ -r "${HOME}/.zshrc-google" ]] && source "${HOME}/.zshrc-google"
-
-  # Load travis
-  [[ -r "${HOME}/.travis/travis.sh" ]] && source "${HOME}/.travis/travis.sh"
 fi

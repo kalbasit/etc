@@ -18,7 +18,7 @@ if [[ "${USER}" == "wmn" ]]; then
 
   if [[ -d "${HOME}/go" ]]; then
     export GOPATH="${HOME}/go:${GOPATH}"
-    export PATH="${HOME}/go:${PATH}"
+    export PATH="${HOME}/go/bin:${PATH}"
   fi
 
   if [[ -d "${HOME}/.cask/bin" ]]; then
@@ -27,14 +27,14 @@ if [[ "${USER}" == "wmn" ]]; then
   fi
 
   # Load rbenv
-  if [[ -d ${HOME}/.rbenv ]]; then
+  if [[ -d "${HOME}/.rbenv" ]]; then
     export PATH="${HOME}/.rbenv/bin:$PATH"
     eval "$(rbenv init --no-rehash - zsh)"
   fi
 
   # Load pyenv
-  if [[ -d $HOME/.pyenv ]]; then
-    path=($HOME/.pyenv/bin(N-/) $path)
+  if [[ -d "${HOME}/.pyenv" ]]; then
+    export PATH="${HOME}/.pyenv/bin:$PATH"
     eval "$(pyenv init --no-rehash - zsh)"
   fi
 
@@ -43,8 +43,8 @@ if [[ "${USER}" == "wmn" ]]; then
   export GREP_COLOR='1;32'
 
   # Load Google specific stuff
-  [[ -r "$HOME/.zshrc-google" ]] && source "$HOME/.zshrc-google"
+  [[ -r "${HOME}/.zshrc-google" ]] && source "${HOME}/.zshrc-google"
 
   # Load travis
-  [[ -r "$HOME/.travis/travis.sh" ]] && source "$HOME/.travis/travis.sh"
+  [[ -r "${HOME}/.travis/travis.sh" ]] && source "${HOME}/.travis/travis.sh"
 fi

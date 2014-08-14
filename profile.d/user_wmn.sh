@@ -6,13 +6,16 @@ if [[ "${USER}" == "wmn" ]]; then
     export MYFS="${HOME}/.filesystem"
     export PATH="${MYFS}/bin:$PATH"
 
-    if [[ -d "${MYFS}/opt/go_appengine/goroot" ]]; then
-      export GOPATH="${MYFS}/opt/go_appengine/goroot:${GOPATH}"
-      export PATH="${MYFS}/opt/go_appengine/goroot/bin:${PATH}"
-    fi
+    if [[ -d "${MYFS}/opt" ]]; then
+      if [[ -d "${MYFS}/opt/go_appengine" ]]; then
+        export PATH="${MYFS}/opt/go_appengine:${PATH}"
+      fi
 
-    if [[ -d "${MYFS}/opt/xiki/bin" ]]; then
-      export PATH="${MYFS}/opt/xiki/bin:${PATH}"
+      for dir in `ls --color=never "${MYFS}/opt"`; do
+        if [[ -d "${MYFS}/opt/${dir}/bin" ]]; then
+          export PATH="${MYFS}/opt/${dir}/bin:${PATH}"
+        fi
+      done
     fi
   fi
 
